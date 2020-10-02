@@ -42,7 +42,6 @@ async function getData(){
 
     let response1 = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
     let data = await response1.json(); 
-    console.log(data);
 
     
     //pokemon type
@@ -90,13 +89,6 @@ async function getData(){
     const pokeAbility = data["abilities"][0]["ability"].name;
     const pokeAbilityCaps = capitalise(pokeAbility);
     pokemonAbility.innerText=pokeAbilityCaps;
-
-    console.log(pokeId)
-
 }
 
 button.addEventListener("click", getData);
-
-
-//Trying to work out how to get the pokemon ID (pokeId) and stick it onto the end of the fetch ID
-//Doing this so I can generate a user selected Pokemon and display it using the ID number.
