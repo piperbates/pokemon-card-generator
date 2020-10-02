@@ -1,0 +1,197 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+  text-align: center;
+}
+
+button {
+  margin: 3px;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+h3 {
+  margin-bottom: 5px;
+  margin-top:0px;
+  padding: 0px;
+}
+
+#poke-box {
+  border: 10px #bb8f21 solid;
+  width: 250px;
+  height: 400px;
+  margin: auto;
+  border-radius: 25px;
+}
+
+#card-header {
+  height: 20px;
+  padding: 8px;
+}
+
+#card-body {
+  text-align: center;
+  color: black;
+}
+
+#poke-image {
+  width: 200px;
+  height: 200px;
+}
+
+#img-box {
+  border: 5px #bb8f21 solid;
+  padding: 0px;
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  background-color: white;
+  
+  border-radius: 10px;
+}
+
+#type-box{
+  width: 200px;
+  height: 20px;
+}
+
+#misc-info-box{
+  background-color: white;
+  font-size: x-small;
+  width: 80%;
+  margin: auto;
+  margin-top: 3px;
+  border-radius: 25px;
+}
+
+.background-box{
+  background-color: white;
+  opacity: 75%;
+  width: 90%;
+  margin: auto;
+  border-radius: 10px;
+}
+#move-info {
+margin: 3px;
+padding: 3px;
+}
+
+#move-info ul {
+  list-style-type: none;
+  margin:0px;
+  padding:0px; 
+}
+
+.move-list {
+  padding: 0px;
+}
+
+.made-by{
+  font-size: xx-small;
+  margin: auto;
+}
+
+p.made-by{
+  margin-top:5px;
+}
+
+
+
+.bug{
+  background-color: #8A970F;
+  color: white;
+}
+
+.dark{
+  background-color: #3E2D23;
+  color: white;
+}
+
+.dragon{
+  background-color: #7F6ADF;
+  color: white;
+}
+
+.electric{
+  background-color: #F7BD29;
+  color: black;
+}
+
+.fairy{
+  background-color: #F2B7F2;
+  color: black;
+}
+
+.fighting{
+  background-color: #7F331D;
+  color: white;
+}
+
+.fire{
+  background-color: #B82A11;
+  color: white;
+}
+
+.flying{
+  background-color: #5D74D3;
+  color: white;
+}
+
+.ghost{
+  background-color: #6260B3;
+  color: white;
+}
+
+.grass{
+  background-color: #79C63F;
+  color: white;
+}
+
+.ground{
+  background-color: #D3B45B;
+  color: white;
+}
+
+.ice{
+  background-color: #79D8F5;
+  color: black;
+}
+
+.normal{
+  background-color: #C7C2B8;
+  color: black;
+}
+
+.poison{
+  background-color: #883F8A;
+  color: white;
+}
+
+.psychic{
+  background-color: #DB3164;
+  color: white;
+}
+
+.rock{
+  background-color: #9F873D;
+  color: white;
+}
+
+.steel{
+  background-color: #9191A1;
+  color: white;
+}
+
+.water{
+  background-color: #449CF3;
+  color: black;
+}
+
