@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="style.css">
+  <title>Pokedex</title>
+</head>
+<body>
+  <main>
+    <h1>Pokemon Card Generator</h1>
+
+    <button>Get Random Card</button>
+
+    <div id="poke-box" class="electric">
+      <div id="card-header">
+      <span id="poke-name" class="float-left">Pikachu</span>
+
+      <span id="poke-hp" class="float-right">35HP</span>
+    </div><!--#card-header-->
+
+    <div id="card-body">
+      <div id="img-box">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" id="poke-image" alt="Pokemon Image"/>
+      <!--<div id="type-box">Blep</div>-->
+
+    </div>
+      <div id="misc-info-box">Number 25 | Weight 60 | Height 4</div>
+
+      <div class="background-box">
+      <div id="move-info">
+      <h3>Moves</h3>
+      <ul>
+        <li id="move1" class="move-list">mega-punch</li>
+        <li id="move2"  class="move-list">pay-day</li>
+      </ul>
+      </div><!--#move-info-->
+    </div><!--#background-box-->
+      <div class="background-box">
+      <div id="ability-box">
+        <h3>Ability</h3>
+        <span id="ability">Static</span>
+      </div>
+    </div><!--#background-box-->
+  </div><!--#card-body-->  
+  <div> <span class="made-by">Pokemon &#169; Nintendo</span>
+  </div>  
+ 
+    </div><!--#poke-box-->
+    <p class="made-by">
+      Created by <a href="http://www.github.com/piperbates" target="_blank">Piper Bates</a> | made with <a href="https://pokeapi.co/" target="_blank">PokeAPI</a></p>
+
+    
+
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
