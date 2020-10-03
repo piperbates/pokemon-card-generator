@@ -33,7 +33,7 @@ function capitalise(string){
 
 function removeType(){
     for(const type of allTypes)
-    pokeBox.classList.remove(type)
+    pokeBox.classList.remove(type);
 }
 
 async function getData(){
@@ -42,15 +42,26 @@ async function getData(){
 
     let response1 = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
     let data = await response1.json(); 
-
     
     //pokemon type
-    const pokeType1 = data["types"][0]["type"].name;
-    //const pokeType2 = data["types"][1]["type"].name;
+    const pokeType1 = data["types"][0]["type"].name
+    const type1Caps = capitalise(pokeType1); //capitalises type
+   
 
+    if (data["types"][1]){
+        const pokeType2 = data["types"][1]["type"].name;
+        const type2Caps = capitalise(pokeType2);
+        typeBox.innerText = `${type1Caps} | ${type2Caps}`;
+    } else {
+        typeBox.innerText = `${type1Caps}`;
+    }
+
+
+       
     //Change bg color depending on type
 
-    pokeBox.classList.add(pokeType1)
+    pokeBox.classList.add(pokeType1);
+        
 
 
         //capitalises the Pokemons name and displays it on the card
@@ -78,12 +89,31 @@ async function getData(){
 
 
     //Pokemon Moves
-    const pokeMove1 = data["moves"]["0"]["move"].name;
-    const move1Caps = capitalise(pokeMove1);
-    const pokeMove2 = data["moves"]["1"]["move"].name;
-    const move2Caps = capitalise(pokeMove2);
-    pokemonMove1.innerText = move1Caps;
-    pokemonMove2.innerText = move2Caps;
+    
+    const getMove1Data = data["moves"]["0"];
+    const move1Info = getMove1Data["move"].name;
+    const move1Caps = capitalise(move1Info);
+
+    if(data["moves"]["1"]){
+        const getMove2Data = data["moves"]["1"]["move"].name;
+        const move2Caps = capitalise(getMove2Data);
+        pokemonMove1.innerText = move1Caps;
+        pokemonMove2.innerText = move2Caps;
+    } else {
+        pokemonMove1.innerText = move1Caps;
+        pokemonMove2.innerText = "";
+    }
+
+    // let pokesMove2 = getMove2Data["move"].name;
+    // let move2Caps = capitalise(pokesMove2);
+    // pokemonMove1.innerText = move1Caps;
+    // pokemonMove2.innerText = move2Caps;
+    // } else {
+    //     pokemonMove1.innerText = move1Caps;
+    //     pokemonMove2.innerText = move2Caps;
+    // };
+
+
 
     //ability
     const pokeAbility = data["abilities"][0]["ability"].name;
