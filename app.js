@@ -131,7 +131,11 @@ async function getData(){
 function dexId(){
     id = input.value;
     if(id >= 808){
-       alert("Insert a number between 1-807")
+       alert("Insert a number between 1-807");
+    } else if (id==="0") {
+    alert("Insert a number between 1-807");
+    } else if (id === "") {
+        alert("Insert a number.");
     } else {
     getData();
     }
