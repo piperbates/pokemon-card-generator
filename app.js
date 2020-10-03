@@ -9,8 +9,10 @@ const pokemonMoveBox = document.querySelector("#move-info");
 let pokemonMove1 = document.querySelector("#move1");
 let pokemonMove2 = document.querySelector("#move2");
 let pokemonAbility = document.querySelector("#ability");
-let button = document.querySelector("button");
+let button = document.querySelector("#randomGet");
+let button2 = document.querySelector("#dexGet");
 let typeBox = document.querySelector("#type-box");
+let input = document.querySelector("#input");
 
 //variables and arrays
 
@@ -36,15 +38,15 @@ function removeType(){
     pokeBox.classList.remove(type);
 }
 
+let id = ""
+
 async function getData(){
     removeType();
-    let id = Math.floor(Math.random() * 809)
-
     let response1 = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
     let data = await response1.json(); 
     
     //pokemon type
-    const pokeType1 = data["types"][0]["type"].name
+    const pokeType1 = data["types"]["0"]["type"].name
     const type1Caps = capitalise(pokeType1); //capitalises type
    
 
@@ -121,4 +123,20 @@ async function getData(){
     pokemonAbility.innerText=pokeAbilityCaps;
 }
 
-button.addEventListener("click", getData);
+function dexId(){
+    id = input.value;
+    if(id >= 808){
+       alert("Insert a number between 1-807")
+    } else {
+    getData();
+    }
+}
+
+
+function randomId(){
+    id = Math.floor(Math.random() * 807)
+    getData();
+    }
+
+button.addEventListener("click", randomId);
+button2.addEventListener("click", dexId);
