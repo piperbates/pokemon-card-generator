@@ -13,6 +13,9 @@ let button = document.querySelector("#randomGet");
 let button2 = document.querySelector("#dexGet");
 let typeBox = document.querySelector("#type-box");
 let input = document.querySelector("#input");
+let previous = document.querySelector("#left");
+let next = document.querySelector("#right");
+let hidden = document.querySelector("#hide-box");
 
 //variables and arrays
 
@@ -38,12 +41,14 @@ function removeType(){
     pokeBox.classList.remove(type);
 }
 
-let id = ""
-
+let id = "12";
 async function getData(){
+
+    hidden.classList.remove("no-display");
     removeType();
     let response1 = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
     let data = await response1.json(); 
+
     
     //pokemon type
     const pokeType1 = data["types"]["0"]["type"].name
@@ -138,5 +143,17 @@ function randomId(){
     getData();
     }
 
+    function previousId(){
+        id --
+        getData();
+    }
+    function nextId(){
+        id ++
+        getData();
+    }
+
 button.addEventListener("click", randomId);
 button2.addEventListener("click", dexId);
+
+previous.addEventListener("click", previousId);
+next.addEventListener("click", nextId);

@@ -5,44 +5,44 @@
   <title>Pokedex</title>
 </head>
 <body>
-  <main>
+  <main>  
     <h1>Pokemon Card Generator</h1>
-
-    <p>Pokedex currently only goes up to Gen 7!</p>
 
     <input type="number" placeholder="Enter Pokedex Number" id="input"/> <button id="dexGet">Get Pokemon by dex number</button>
     <br/>
 
     <button id="randomGet">Get Random Card</button>
-
+<div id="hide-box" class="no-display">
+    <div class="arrow-left" id="left"></div>
+    <div class="arrow-right" id="right"></div>
     <div id="poke-box" class="electric">
       <div id="card-header">
-      <span id="poke-name" class="float-left">Pikachu</span>
+      <span id="poke-name" class="float-left"></span>
 
-      <span id="poke-hp" class="float-right">35HP</span>
+      <span id="poke-hp" class="float-right"></span>
     </div><!--#card-header-->
 
     <div id="card-body">
       <div id="img-box">
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" id="poke-image" alt="Pokemon Image"/>
-      <div id="type-box">Electric</div>
+      <img src="" id="poke-image" alt="Pokemon Image"/>
+      <div id="type-box"></div>
 
     </div>
-      <div id="misc-info-box">Number 25 | Weight 60 | Height 4</div>
+      <div id="misc-info-box"></div>
 
       <div class="background-box">
       <div id="move-info">
       <h3>Moves</h3>
       <ul>
-        <li id="move1" class="move-list">mega-punch</li>
-        <li id="move2"  class="move-list">pay-day</li>
+        <li id="move1" class="move-list"></li>
+        <li id="move2"  class="move-list"></li>
       </ul>
       </div><!--#move-info-->
     </div><!--#background-box-->
       <div class="background-box">
       <div id="ability-box">
         <h3>Ability</h3>
-        <span id="ability">Static</span>
+        <span id="ability"></span>
       </div>
     </div><!--#background-box-->
   </div><!--#card-body-->  
@@ -50,10 +50,9 @@
   </div>  
  
     </div><!--#poke-box-->
+  </div><!--#hide-box-->
     <p class="made-by">
       Created by <a href="http://www.github.com/piperbates" target="_blank">Piper Bates</a> using <a href="https://pokeapi.co/" target="_blank">PokeAPI</a></p>
-
-    
 
   </main>
   <script src="app.js"></script>
