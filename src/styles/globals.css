@@ -15,7 +15,12 @@ body {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: underline;
+  color: black;
+}
+
+a:hover {
+  color: grey;
 }
 
 @media only screen and (max-width: 600px)  {

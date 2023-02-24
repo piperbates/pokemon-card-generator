@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image"
+
 export type PokemonType = {
     name: string,
     id: number,
@@ -15,6 +17,7 @@ export type PokemonType = {
         }
     ],
     moves: [
+        {move: {name: string}},
         {move: {name: string}}
     ]
     types: [{
@@ -24,7 +27,6 @@ export type PokemonType = {
     }}
     ]
     sprites: {
-        front_default: string
         other: {
             'official-artwork': {
                 'front_default': string

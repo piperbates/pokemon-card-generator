@@ -1,13 +1,15 @@
-import { PokemonDataContext } from "@/context/PokemonDataContext"
-import { useContext, useEffect } from "react"
 import styles from '@/styles/Card.module.css' 
 import CardBox from "./CardBox";
+import { PokemonType } from "@/types/allPokemonTypes";
 
-export default function Card() {
-    const { currentPokemonData } = useContext(PokemonDataContext);
-    const moves = currentPokemonData?.moves.slice(0, 2);
-    const abilities = currentPokemonData?.abilities[0].ability.name;
-    const mainType = currentPokemonData?.types[0].type.name;
+
+export default function Card(props: PokemonType) {
+
+    const { name, sprites, id, moves, height, weight, stats, abilities, types } = props;
+    
+    const formattedMoves = moves.slice(0, 2);
+    const formattedAbilities = abilities[0].ability.name;
+    const mainType = types[0].type.name;
 
     const capitalizer = (item: string) => {
         const removeHyphen = item.split("-");
@@ -17,34 +19,31 @@ export default function Card() {
         return capitalisedItem.join(' ');
     }
 
-    if(currentPokemonData?.moves[0].move.name) {    
-        const firstMove = capitalizer(currentPokemonData?.moves[0].move.name)
-}
     return (
     <div className={`${styles.card} ${mainType}`}>
         <div className={styles.cardHeader}>
-            <div className={styles.pkmnNameBox}>{currentPokemonData && capitalizer(currentPokemonData?.name)}</div>
-            <div className={styles.hpBox}>HP: {currentPokemonData?.stats[0].base_stat}</div>
+            <div className={styles.pkmnNameBox}>{capitalizer(name)}</div>
+            <div className={styles.hpBox}>HP: {stats[0].base_stat}</div>
         </div>
 
         <div className={styles.pokemonImg}>
-            <img src={currentPokemonData?.sprites.other["official-artwork"]["front_default"]} className='pokemon-img'/>
+            <img src={sprites.other["official-artwork"]["front_default"]} className='pokemon-img'/>
             <div className={styles.typeBox}>
-                {currentPokemonData?.types.map(({type})=> <div className={styles.type} key={type.name}>{capitalizer(type.name)}</div>)}
+                {types.map(({type})=> <div className={styles.type} key={type.name}>{capitalizer(type.name)}</div>)}
             </div>
         </div>
 
         <div className={styles.statsBox}>
-            <div className={styles.stat}>#{currentPokemonData?.id}</div>
+            <div className={styles.stat}>#{id}</div>
 
-            {currentPokemonData?.weight && <div className={styles.stat}>{currentPokemonData?.weight / 10}kg</div>}
+            <div className={styles.stat}>{weight / 10}kg</div>
             
-            {currentPokemonData?.height && <div className={styles.stat}>{currentPokemonData?.height / 10}m</div>}
+           <div className={styles.stat}>{height / 10}m</div>
         </div>
 
         <CardBox header="Moves">
             <div>
-                {moves?.map(({move})=>{
+                {formattedMoves?.map(({move})=>{
                     const formattedMove = capitalizer(move.name)
                     return <div className={styles.move} key={move.name}>{formattedMove}</div>
                 })}
@@ -52,7 +51,7 @@ export default function Card() {
         </CardBox>
 
         <CardBox header="Abilities">
-            <div>{abilities ? <p>{capitalizer(abilities)}</p> : null}</div>
+            <div>{formattedAbilities ? <p>{capitalizer(formattedAbilities)}</p> : null}</div>
         </CardBox>
 
         <div className={styles.copyrightBox}>
