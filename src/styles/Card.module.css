@@ -1,0 +1,88 @@
+.card {
+    width: 250px;
+    border-radius: 20px;
+    border: 10px solid #bb8f21;
+    margin: 5px auto;
+    padding: 4px;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+}
+
+.cardHeader div {
+    padding: 3px;
+    display: inline;
+}
+
+.pkmnNameBox {
+    float: left;
+}
+
+.pokemonImg {
+    width: 200px;
+    height: 230px;
+    border: 5px solid #bb8f21;
+    border-radius: 10px;
+    margin: 10px auto;
+    box-shadow: 0px 3px 3px black;
+    background-color: #fff;
+}
+
+.pokemonImg img {
+    width: 100%;
+}
+
+.typeBox {
+    text-align: center;
+}
+
+.type {
+    display: inline;
+    font-size: .8em;
+}
+
+.type:not(:first-child)::before {
+    content: "|";
+    margin: 5px;
+}
+
+.statsBox {
+    background-color: rgba(255, 255, 255, 75%);
+    border-radius: 20px;
+    text-align: center;
+    font-size: .7em;
+    width: 150px;
+    margin: 8px auto;
+}
+
+.stat {
+    display: inline;
+}
+
+.stat:not(:last-child)::after {
+    margin: 10px;
+    content: '|'
+}
+
+.cardBox {
+    background-color: rgba(255, 255, 255, 75%);
+    margin: 3px auto;
+    padding: 4px;
+    border-radius: 10px;
+    text-align: center;
+    width: 190px;
+}
+
+.cardBox h1 {
+    font-size: 1.3em;
+}
+
+.copyrightBox {
+    text-align: center;
+    margin: auto;
+    font-size: .6em;
+    color: #fff;
+}

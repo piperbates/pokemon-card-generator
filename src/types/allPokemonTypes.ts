@@ -1,6 +1,6 @@
 export type PokemonType = {
     name: string,
-    dex: number,
+    id: number,
     weight: number,
     height: number,
     stats: [
@@ -9,13 +9,13 @@ export type PokemonType = {
         },
         base_stat: number}
     ]
-    abilities: {
-        ability: [
-            name: string
-        ]
-    },
+    abilities: [
+        ability: {
+            ability: {name: string}
+        }
+    ],
     moves: [
-        move: string
+        {move: {name: string}}
     ]
     types: [{
         type: {
@@ -25,5 +25,10 @@ export type PokemonType = {
     ]
     sprites: {
         front_default: string
+        other: {
+            'official-artwork': {
+                'front_default': string
+            }
+        }
     }
 }

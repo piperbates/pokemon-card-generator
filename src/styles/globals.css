@@ -23,3 +23,78 @@ a {
     background-color: pink;
   }
 }
+
+/* Pokemon Colours */
+
+
+.grass {
+  background-color: #79C63F;
+}
+
+.fire {
+  background-color: #B82A11;
+}
+
+.water {
+  background-color: #449CF3;
+}
+
+.normal {
+  background-color: #C7C2B8;
+}
+
+.electric {
+  background-color: #F7BD29;
+}
+
+.bug {
+  background-color: #8A970F;
+}
+
+.flying {
+  background-color: #A890F0;
+}
+
+.ground {
+  background-color: #D3B45B;
+}
+
+.ghost {
+  background-color: #6260B3;
+}
+
+.rock {
+  background-color: #9F873D;
+}
+
+.fighting {
+  background-color: #7F331D;
+}
+
+.poison {
+  background-color: #883F8A;
+}
+
+.fairy {
+  background-color: #F2B7F2;
+}
+
+.psychic {
+  background-color: #DB3164;
+}
+
+.ice {
+  background-color: #79D8F5;
+}
+
+.dragon {
+  background-color: #7F6ADF;
+}
+
+.dark {
+  background-color: #3E2D23;
+}
+
+.steel {
+  background-color: #9191A1;
+}

@@ -1,0 +1,21 @@
+.generatorHeader {
+    width: 400px;
+    margin: auto;
+    text-align: center;
+}
+
+.pokemonInput, .button {
+    padding: 5px;   
+    margin: 3px; 
+}
+
+.button {
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: white;
+}
+
+.button:active {
+    background-color: lightgray;
+}

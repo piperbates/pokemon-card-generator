@@ -6,8 +6,10 @@ import { PokemonType } from '@/types/allPokemonTypes'
 import fetchData from '@/utils/fetchData'
 import { urls } from '@/utils/urls'
 import { PokemonDataContext } from '@/context/PokemonDataContext'
-import Card from '@/components/Card/Card'
-const inter = Inter({ subsets: ['latin'] })
+import CardLayout from '@/components/Layout/CardLayout'
+import styles from '@/styles/Generator.module.css' 
+
+ 
 
 export default function Home() {
   const [allPokemonData, setAllPokemonData] = useState<PokemonType[] | any>(null);
@@ -16,18 +18,28 @@ export default function Home() {
 
 useEffect(()=>{
   const pokemonSetter = async() => {
-    const allPokemonData = await fetchData(`${urls.pokemon}`);
+    const allPokemonData = await fetchData(`${urls.allPokemon}`);
     setAllPokemonData(allPokemonData)
   };
   pokemonSetter()
 }, [])
 
+const amountOfPokemon = 1008;
+
+const getRandomPokemon = async () => {
+  const randomNumber = Math.floor(Math.random() * amountOfPokemon)
+  const newPokemonData = await fetchData(`${urls.pokemon}/${randomNumber}`)
+  setCurrentPokemonData(newPokemonData)
+}
+
 const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-  setSelectedPokemon(e.target.value)
+  setSelectedPokemon(e.target.value.toLowerCase())
 }
 
 const handleClick = () => {
-
+  if(selectedPokemon === '') {
+    alert('Please insert a Pokemon') // I don't like alerts so I'll chnge this later
+  }
   const getSelectedPokemonData = async (pokemonUrl: string) => {
     const pokemonData = await fetchData(pokemonUrl)
     setCurrentPokemonData(pokemonData);
@@ -37,7 +49,8 @@ const handleClick = () => {
       if(pokemon.name === selectedPokemon)
         {
           getSelectedPokemonData(pokemon.url);
-        }
+        } 
+
     })
 }
 
@@ -45,19 +58,24 @@ const handleClick = () => {
       <PageLayout headerText="Pokemon Card Generator">
       <main>
         <div>
-          <input type="text" onChange={(e)=>handleInputChange(e)} />
-          <button onClick={handleClick}>Get Pokemon</button>
-
+          <div className={styles.generatorHeader}>
+            <input className={styles.pokemonInput} value={selectedPokemon} type="text" onChange={(e)=>handleInputChange(e)} />
+            <button onClick={handleClick} className={styles.button}>Get Pokemon</button>
+            <br />
+            <button onClick={getRandomPokemon} className={styles.button}>Get Random Pokemon</button>
+          </div>
+        {
+          currentPokemonData ?
           <PokemonDataContext.Provider value={{
             currentPokemonData,
             setCurrentPokemonData
           }
           }>
-            <Card />
+            <CardLayout />
           </PokemonDataContext.Provider>
-
-          <br />
-          <Link href="/about">About</Link>
+          : 
+          null
+          }
         </div>
       </main>
       </PageLayout>
