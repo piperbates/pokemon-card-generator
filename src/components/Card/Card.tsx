@@ -1,6 +1,7 @@
 import styles from '@/styles/Card.module.css' 
 import CardBox from "./CardBox";
 import { PokemonType } from "@/types/allPokemonTypes";
+import Image from 'next/image';
 
 
 export default function Card(props: PokemonType) {
@@ -14,7 +15,7 @@ export default function Card(props: PokemonType) {
         </div>
 
         <div className={styles.pokemonImg}>
-            <img src={sprite} className='pokemon-img'/>
+            <img src={sprite} className='pokemon-img' alt={name}/>
             <div className={styles.typeBox}>
                 {types.map((type: string, i)=> <div className={styles.type} key={i}>{type}</div>)}
             </div>
