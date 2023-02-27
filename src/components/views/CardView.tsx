@@ -6,7 +6,6 @@ import Card from "../Card/Card";
 export default function CardView() {
     const { currentPokemonData } = useContext(PokemonDataContext)
     
-    console.log(currentPokemonData)
     return currentPokemonData 
         ? <Card 
             name={currentPokemonData.name}
@@ -14,10 +13,11 @@ export default function CardView() {
             moves={currentPokemonData.moves}
             height={currentPokemonData.height}
             weight={currentPokemonData.weight}
-            stats={currentPokemonData.stats}
-            abilities={currentPokemonData.abilities}
+            hp={currentPokemonData.hp}
+            ability={currentPokemonData.ability}
             types={currentPokemonData.types}
-            sprites={currentPokemonData.sprites}
+            sprite={currentPokemonData.sprite}
+            mainType={currentPokemonData.mainType}
             /> 
         : null
 }

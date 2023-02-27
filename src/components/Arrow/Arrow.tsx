@@ -1,4 +1,5 @@
 import { PokemonDataContext } from "@/context/PokemonDataContext";
+import { formatPokemonData } from "@/utils/formatPokemonData";
 import fetchData from "@/utils/fetchData";
 import { urls } from "@/utils/urls";
 import { useContext } from "react";
@@ -16,21 +17,20 @@ export default function Arrow (props: ArrowProps) {
 
     const { currentPokemonData, setCurrentPokemonData } = useContext(PokemonDataContext);
 
-    const type = currentPokemonData?.types[0].type.name;
-
     const handleClick = () => {
         if(currentPokemonData) {
             const getNewPokemon = async () => {
             const newNumber = currentPokemonData?.id + direction;
             const newData = await fetchData(`${urls.pokemon}/${newNumber}`)
-            setCurrentPokemonData(newData)
+            const formattedData = formatPokemonData(newData)
+            setCurrentPokemonData(formattedData)
             }
             getNewPokemon()
         }
     }
     
     return (
-        <button onClick={handleClick} className={`${styles.arrow} ${type}`}>
+        <button onClick={handleClick} className={`${styles.arrow} ${currentPokemonData?.mainType}`}>
             {label}
         </button>
     )

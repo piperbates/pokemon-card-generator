@@ -7,35 +7,22 @@ import mugshot from '../images/mugshot.jpeg'
 
 export default function AboutPage() {
 
-    console.log(mugshot)
-
     const myData: PokemonType = {
         name: 'Piper',
         id: 36,
-        sprites: {
-            other: {
-                'official-artwork': {'front_default': mugshot.src}
-            },
-        },
+        sprite: mugshot.src,
         moves: [
-            {move: {name: 'Splash'}},
-            {move: {name: 'Rest'}}
+            'Splash',
+            'Rest'
         ],
         height: 16,
         weight: 1143,
-        stats: [
-            {stat: {name: 'HP'},
-            base_stat: 95,}
-        ],
-        abilities: [
-            {ability: {name: 'Sketch'}},
-        ],
+        hp: 95,
+        ability: 'Sketch',
         types: [
-            {type: {
-                name: 'bug',
-                url: ''
-            }}
-        ]
+           'Bug',
+        ],
+        mainType: 'bug'
         }
 
     return (
@@ -53,14 +40,15 @@ export default function AboutPage() {
 
                 <Card
                     name={myData.name}
-                    sprites={myData.sprites} 
+                    sprite={myData.sprite} 
                     id={myData.id}
                     moves={myData.moves}
                     height={myData.height}
                     weight={myData.weight}
-                    stats={myData.stats}
-                    abilities={myData.abilities}
+                    hp={myData.hp}
+                    ability={myData.ability}
                     types={myData.types}
+                    mainType={myData.mainType}
                 />
                 <Link href="/generator">Back to the app</Link>
             </div>

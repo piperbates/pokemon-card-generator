@@ -1,19 +1,17 @@
-import { Inter } from '@next/font/google'
-import Link from 'next/link'
 import PageLayout from '@/components/Layout/PageLayout'
-import { ChangeEvent, useEffect, useState, useContext } from 'react'
-import { PokemonType } from '@/types/allPokemonTypes'
+import { useEffect, useState, useContext } from 'react'
+import { PokemonApiData, PokemonSearchType, PokemonType } from '@/types/allPokemonTypes'
 import fetchData from '@/utils/fetchData'
+import { formatPokemonData } from '@/utils/formatPokemonData'
 import { urls } from '@/utils/urls'
 import { PokemonDataContext } from '@/context/PokemonDataContext'
 import CardLayout from '@/components/Layout/CardLayout'
 import styles from '@/styles/Generator.module.css' 
 
- 
 
 export default function Home() {
-  const [allPokemonData, setAllPokemonData] = useState<PokemonType[] | any>(null);
-  const [currentPokemonData, setCurrentPokemonData] = useState<PokemonType[] | any>(null);
+  const [allPokemonData, setAllPokemonData] = useState<PokemonApiData[] | any>(null); // Change this from any to null
+  const [currentPokemonData, setCurrentPokemonData] = useState<PokemonType[] | any>(null); // Change this from any to null
   const [selectedPokemon, setSelectedPokemon] = useState('')
 
 useEffect(()=>{
@@ -29,12 +27,12 @@ const amountOfPokemon = 1008;
 const getRandomPokemon = async () => {
   const randomNumber = Math.floor(Math.random() * amountOfPokemon)
   const newPokemonData = await fetchData(`${urls.pokemon}/${randomNumber}`)
-  setCurrentPokemonData(newPokemonData)
+  const formattedPokemon = formatPokemonData(newPokemonData)
+  setCurrentPokemonData(formattedPokemon)
+
 }
 
-const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-  setSelectedPokemon(e.target.value.toLowerCase())
-}
+
 
 const handleClick = () => {
   if(selectedPokemon === '') {
@@ -42,15 +40,15 @@ const handleClick = () => {
   }
   const getSelectedPokemonData = async (pokemonUrl: string) => {
     const pokemonData = await fetchData(pokemonUrl)
-    setCurrentPokemonData(pokemonData);
+    const formattedData = formatPokemonData(pokemonData)
+    setCurrentPokemonData(formattedData);
   }
 
-    allPokemonData.results.map((pokemon: any) => {
+    allPokemonData.results.map((pokemon: PokemonSearchType) => { // Refactor this function to be more scalable, potentially look into search algorithms??
       if(pokemon.name === selectedPokemon)
         {
           getSelectedPokemonData(pokemon.url);
         } 
-
     })
 }
 
@@ -59,7 +57,8 @@ const handleClick = () => {
       <main>
         <div>
           <div className={styles.generatorHeader}>
-            <input className={styles.pokemonInput} value={selectedPokemon} type="text" onChange={(e)=>handleInputChange(e)} />
+            <input className={styles.pokemonInput} value={selectedPokemon} type="text" onChange={(e)=>   setSelectedPokemon(e.target.value.toLowerCase())
+} />
             <button onClick={handleClick} className={styles.button}>Get Pokemon</button>
             <br />
             <button onClick={getRandomPokemon} className={styles.button}>Get Random Pokemon</button>

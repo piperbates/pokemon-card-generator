@@ -1,36 +1,39 @@
-import { StaticImageData } from "next/image"
-
 export type PokemonType = {
     name: string,
     id: number,
     weight: number,
     height: number,
+    hp: number,
+    ability: string,
+    moves: string[],
+    types: string[],
+    mainType: string,
+    sprite: string
+}
+
+export type PokemonSearchType = {
+    name: string,
+    url: string,
+}
+
+export type PokemonApiData = {
+    name: string,
+    id: number,
+    weight: number,
+    height: number,
+    moves: [],
     stats: [
-        {stat: {
-            name: string,
-        },
-        base_stat: number}
-    ]
-    abilities: [
-        ability: {
-            ability: {name: string}
-        }
+        {base_stat: number, stat: {name: string}}
     ],
-    moves: [
-        {move: {name: string}},
-        {move: {name: string}}
-    ]
-    types: [{
-        type: {
-        name: string,
-        url: string
-    }}
-    ]
+    types: [
+        {type: {name: string}}
+    ],
+    abilities: [
+        {ability: {name: string}}
+    ],
     sprites: {
-        other: {
-            'official-artwork': {
-                'front_default': string
-            }
-        }
+        other: {"official-artwork": {
+            "front_default": string
+        }}
     }
 }
