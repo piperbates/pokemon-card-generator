@@ -1,0 +1,44 @@
+.pagelayout {
+    width: 600px;
+    margin: auto;
+}
+
+.pagelayout h1 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+
+.footer {
+    margin-top: 10px;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.7em;
+    padding: 4px;
+}
+
+.footer li {
+    display: inline;
+}
+
+.footer li:not(:last-child)::after {
+    content: "|";
+    margin: 20px;
+}
+
+.footer a {
+    color: black;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+
+
+@media only screen and (max-width: 600px)  {
+    .pagelayout {
+        width: 400px;
+    }
+  } 
