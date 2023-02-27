@@ -29,11 +29,11 @@ export default function AboutPage() {
         <PageLayout headerText="About">
             <div className={styles.aboutBox}>
                 <div className={styles.aboutContent}>
-                    <p>Thanks so much for checking out my little project! This project is pretty simple but it has a lot of sentimental value as it's a remake of the very first app I ever built using an API.</p>
+                    <p>Thanks so much for checking out my little project! This project is pretty simple but it has a lot of sentimental value as it&apos;s a remake of the very first app I ever built using an API.</p>
                     
-                    <p>I decided to rebuild this as part of a project to remake all my older beginner projects to see how far I've come as a developer. The first iteration of this app was vanilla JavaScript and was pretty janky code. I can't claim this version is perfect but it's better than it was before!</p>
+                    <p>I decided to rebuild this as part of a project to remake all my older beginner projects to see how far I&apos;ve come as a developer. The first iteration of this app was vanilla JavaScript and was pretty janky code. I can&apos;t claim this version is perfect but it&apos;s better than it was before!</p>
                 
-                    <p>If you have any feedback or want to learn more about me, I'd love to hear your comments!</p>
+                    <p>If you have any feedback or want to learn more about me, I&apos;d love to hear your comments!</p>
                 
                     <Link href="https://github.com/piperbates/">My Github</Link>
                     <br/>
