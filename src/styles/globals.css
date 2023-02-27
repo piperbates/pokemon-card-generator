@@ -22,12 +22,14 @@ a {
 a:hover {
   color: grey;
 }
+/* 
+Placeholder in case I want to experiment with more interesting mobile views later
 
 @media only screen and (max-width: 600px)  {
   body {
     background-color: pink;
   }
-}
+} */
 
 /* Pokemon Colours */
 

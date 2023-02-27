@@ -1,7 +1,21 @@
+.aboutBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: first baseline;
+}
+
+
 .aboutContent {
-    padding: 10px;
+    margin: 50px;
 }
 
 .aboutContent p {
     margin-bottom: 20px;
 }
+
+
+@media only screen and (max-width: 600px)  {
+    .aboutBox {
+        display: unset
+    }
+  } 

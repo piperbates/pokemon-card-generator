@@ -36,8 +36,12 @@ export default function AboutPage() {
                     <p>If you have any feedback or want to learn more about me, I'd love to hear your comments!</p>
                 
                     <Link href="https://github.com/piperbates/">My Github</Link>
+                    <br/>
+                    <Link href="/">Back to the app</Link>
+
                 </div>
 
+                <div>
                 <Card
                     name={myData.name}
                     sprite={myData.sprite} 
@@ -50,7 +54,7 @@ export default function AboutPage() {
                     types={myData.types}
                     mainType={myData.mainType}
                 />
-                <Link href="/generator">Back to the app</Link>
+                </div>
             </div>
         </PageLayout>
     )

@@ -19,3 +19,8 @@
 .button:active {
     background-color: lightgray;
 }
+
+.introText {
+    margin: 10px;
+    font-size: 0.8em;
+}
